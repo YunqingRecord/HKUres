@@ -1,35 +1,40 @@
+from pandas import read_csv
 from pandas import DataFrame
 from pandas import concat
 from math import sqrt
 from numpy import concatenate
 import matplotlib.pyplot as plt
-from pandas import read_csv
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import scale
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import mean_squared_error
 from datetime import datetime
+import os
+import numpy as np
 
 
 def parse(x):
     return datetime.strptime(x, '%Y-%m-%d')
 
-
+'''
 dataset = read_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\floors_2018_06_18\\11_F.csv',
-                   parse_dates=['time'], index_col=1, date_parser=parse)
+                   parse_dates=['time'], index_col=1,date_parser=parse,
+                   usecols=['time', 'location', 'total', 'ac', 'light', 'socket','other', 'mixed_usage',
+                            'next_holiday','temperature_max', 'temperature_min'])
 
-dataset = DataFrame(dataset)
-dataset.drop(['location']) # , axis=1, inplace=True)
-dataset.drop('fridge', axis=4, inplace=True)
-dataset.drop('water_heater', axis=5, inplace=True)
-dataset.drop('cooking_appliance', axis=6, inplace=True)
+# dataset = DataFrame(dataset)
+# dataset = dataset.pop('location')
+# dataset.drop(['location'], axis=1, inplace=True)
+# dataset.drop(['water_heater'], axis=1, inplace=True)
+# dataset.drop(['cooking_appliance'], axis=1, inplace=True)
 
-dataset.columns = ['total', 'ac', 'light', 'socket',
-                   'other', 'mixed_usage', 'next_holiday', 'temperature_max', 'temperature_min']
+dataset.columns = ['location', 'total', 'ac', 'light', 'socket','other', 'mixed_usage',
+                            'next_holiday','temperature_max', 'temperature_min']
 
 # dataset.index.name = 'Date'
 # dataset['No'].fillna(0, inplace=True)
 # dataset['temp'].fillna(10, inplace=True)
-dataset = dataset[24:]
+# dataset = dataset[24:]
 
 print(dataset.head(5))
 
@@ -39,12 +44,12 @@ dataset.to_csv('1.csv')
 # Firstly I load the smoothed dataset
 
 dataset = read_csv('1.csv', header=0, index_col=0)
-dataset.columns = ['total', 'ac', 'light', 'socket',
-                   'other', 'mixed_usage', 'next_holiday', 'temperature_max', 'temperature_min']
+dataset.columns =  ['location', 'total', 'ac', 'light', 'socket','other', 'mixed_usage',
+                            'next_holiday','temperature_max', 'temperature_min']
 values = dataset.values
 
 # try to plot the exiting scatters except the win_dir
-groups= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+groups= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # fig = plt.figure()
 i = 1
@@ -56,6 +61,7 @@ for group in groups:
     plt.title(dataset.columns[group], y=0.5, loc='right')
     i += 1
 plt.show()
+'''
 
 
 # convert series to supervised learning(add_labels in time_series data),very important
@@ -83,25 +89,51 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
     return combine
 
 
-def load_data(path='Peking_air_pollution.csv'):
-    dataset = read_csv(path, header=0, index_col=0)
+# data1 = series_to_supervised(data=dataset)
+
+
+def load_data(filename):  # add labels to the dataset
+
+    dataset = read_csv(filename, index_col=0,
+                       usecols=['time', 'total', 'ac', 'light', 'socket', 'other', 'mixed_usage',
+                                'next_holiday', 'temperature_max', 'temperature_min'])
     values = dataset.values
 
-    encoder = LabelEncoder()
-    values[:, 4] = encoder.fit_transform(values[:, 4])
+    # encoder = LabelEncoder()
+    # values[:, 0] = encoder.fit_transform(values[:, 0])
 
     values = values.astype('float32')
     # normalize features in the range of (0, 1)
-    scaler = MinMaxScaler(feature_range=(0, 1))
-    scaled = scaler.fit_transform(values)
+    # scaler = MinMaxScaler(feature_range=(0, 1))
+    scaled = scale(values, axis=0, with_mean=True, with_std=True, copy=True)
+    # scaled = scaler.fit_transform(values)
     # frame as supervised learning
-    combine = series_to_supervised(scaled, 1, 1)  # either past or future is one_step
+    combine = series_to_supervised(scaled, 1, 1)  # future is one_step
     # drop columns overload
-    combine.drop(combine.columns[[9, 10, 11, 12, 13, 14, 15]], axis=1, inplace=True)
+    # combine.drop(combine.columns[[9, 10, 11, 12, 13, 14, 15]], axis=1, inplace=True)
 
-    values = combine.values
-    num_trained = 365*2*24
-    num_valid = 365*24
+    values = combine.values[:, :10]
+    return values
+
+
+def read_file(first_path = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\floors_2018_06_18\\'):
+    # read all files iteratively and process into new csv file
+    csv_list = os.listdir(first_path)
+    i = 0
+    for csv_file in csv_list:
+        i += 1
+        filename = first_path + csv_file
+        values = DataFrame(load_data(filename))
+        values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\'+'addlabel\\' + str(i) + '.csv')
+
+
+read_file()
+
+
+def partition(values): # used to divide the train and test data
+    # values = load_data(filename)
+    num_trained = 700
+    num_valid = 122
 
     train_set = values[0: num_trained, :]
     valid_set = values[num_trained:num_trained+num_valid, :]
@@ -124,4 +156,5 @@ def load_data(path='Peking_air_pollution.csv'):
     x_test  = x_test.reshape((x_test.shape[0], 1, x_test.shape[1]))
     # y_test  = y_test.reshape((y_test.shape[0], 1, y_test.shape[1]))
 
-    return x_train, y_train, x_valid, y_valid, x_test, y_test, scaler, y_test_final
+    return x_train, y_train, x_valid, y_valid, x_test, y_test, y_test_final
+
