@@ -12,6 +12,11 @@ from datetime import datetime
 import os
 import numpy as np
 
+'''
+This function used to add labels to the raw dataset, making it to supervised learning
+
+'''
+
 
 def parse(x):
     return datetime.strptime(x, '%Y-%m-%d')
@@ -125,8 +130,3 @@ def read_file(first_path = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HK
         filename = first_path + csv_file
         values = DataFrame(load_data(filename))
         values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\'+'addlabel\\' + str(i) + '.csv')
-
-
-
-
-
