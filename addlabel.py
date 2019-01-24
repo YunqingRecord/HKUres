@@ -97,7 +97,18 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 # data1 = series_to_supervised(data=dataset)
 
 
-def load_data(filename):  # add labels to the dataset
+def read_file(first_path='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\add_feature\\'):
+    # read all added features files iteratively and process into new csv file
+    csv_list = os.listdir(first_path)
+    i = 0
+    for csv_file in csv_list:
+        i += 1
+        filename = first_path + csv_file
+        values = DataFrame(load_data(filename))
+        values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\Processed\\'+str(csv_file)+'.csv')
+
+
+def load_data(filename):  # add labels to the dataset and normalization to N(0,1)
 
     dataset = read_csv(filename, index_col=0,
                        usecols=['time', 'total', 'ac', 'light', 'socket', 'other', 'mixed_usage',
@@ -121,12 +132,4 @@ def load_data(filename):  # add labels to the dataset
     return values
 
 
-def read_file(first_path = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\floors_2018_06_18\\'):
-    # read all files iteratively and process into new csv file
-    csv_list = os.listdir(first_path)
-    i = 0
-    for csv_file in csv_list:
-        i += 1
-        filename = first_path + csv_file
-        values = DataFrame(load_data(filename))
-        values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\'+'addlabel\\' + str(i) + '.csv')
+read_file()
