@@ -105,14 +105,14 @@ def read_file(first_path='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUr
         i += 1
         filename = first_path + csv_file
         values = DataFrame(load_data(filename))
-        values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\Processed\\'+str(csv_file)+'.csv')
+        values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\Processed\\'+str(csv_file))
 
 
 def load_data(filename):  # add labels to the dataset and normalization to N(0,1)
 
-    dataset = read_csv(filename, index_col=0,
-                       usecols=['time', 'total', 'ac', 'light', 'socket', 'other', 'mixed_usage',
-                                'next_holiday', 'temperature_max', 'temperature_min'])
+    dataset = read_csv(filename,
+                       usecols=['total', 'ac', 'light', 'socket', 'other', 'mixed_usage', 'next_holiday',
+                                'temperature_max', 'temperature_min', 'pressure', 'dew_temp', 'humidity', 'cloudiness', 'rainfall'])
     values = dataset.values
 
     # encoder = LabelEncoder()
@@ -127,8 +127,10 @@ def load_data(filename):  # add labels to the dataset and normalization to N(0,1
     combine = series_to_supervised(scaled, 1, 1)  # future is one_step
     # drop columns overload
     # combine.drop(combine.columns[[9, 10, 11, 12, 13, 14, 15]], axis=1, inplace=True)
-
-    values = combine.values[:, :10]
+    combine = combine[:15]
+    # combine.columns = ['total', 'ac', 'light', 'socket', 'other', 'mixed_usage', 'next_holiday',
+    #                    'temperature_max', 'temperature_min', 'pressure', 'dew_temp', 'humidity', 'cloudiness', 'rainfall']
+    values = combine.values
     return values
 
 

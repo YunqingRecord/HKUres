@@ -50,7 +50,7 @@ def read_file2(first_path = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\H
         filename1 = first_path + csv_file
         filename2 = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\weather_record.csv'
         values = DataFrame(add_feature(filename1, filename2))
-        values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\add_feature\\'+str(csv_file)+'.csv')
+        values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\add_feature\\'+str(csv_file))
 
 
 read_file2()
