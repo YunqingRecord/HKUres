@@ -26,11 +26,12 @@ def read_file3(first_path='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKU
 
 
 def cut_zero(filename):
-    '''
 
+    '''
     :param filename: files in loop to be cut
     :return: the recovered file
     '''
+
     dataset = DataFrame(read_csv(filename,
                         usecols=['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
                                  'temperature_min', 'pressure', 'dew_temp', 'humidity', 'cloudiness', 'rainfall']))
