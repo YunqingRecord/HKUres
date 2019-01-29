@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4640bfba-de30-439d-8abc-553447d407e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CutZero_and_AddName.py" beforeDir="false" afterPath="$PROJECT_DIR$/CutZero_and_AddName.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addlabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/addlabel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AutoEncoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,6 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/HKUres$AutoEncoder.coverage" NAME="AutoEncoder Coverage Results" MODIFIED="1548780365114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$addlabel.coverage" NAME="addlabel Coverage Results" MODIFIED="1548757575594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$add_feature.coverage" NAME="add_feature Coverage Results" MODIFIED="1548402595189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$CutZero_and_AddName.coverage" NAME="CutZero_and_AddName Coverage Results" MODIFIED="1548755707930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -22,64 +23,51 @@
     <session id="535906162">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.21" value="2" />
-          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="32" />
+          <entry key="py" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="32" />
+          <entry key="Python" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3962" />
+          <entry key="py" value="5206" />
           <entry key="txt" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="51" />
-          <entry key="Python" value="3962" />
+          <entry key="Python" value="5206" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/addlabel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="108" column="20" lean-forward="true" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-                <marker date="1548757441314" expanded="true" signature="3814:3815" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/add_feature.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="60">
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <marker date="1548402595168" expanded="true" signature="222:1375" ph="..." />
@@ -89,14 +77,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CutZero_and_AddName.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AutoEncoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="23" column="108" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="23" selection-end-column="108" />
+            <state relative-caret-position="243">
+              <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
-                <marker date="1548757319939" expanded="true" signature="913:918" ph="..." />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,6 +114,7 @@
         <option value="$PROJECT_DIR$/add_feature.py" />
         <option value="$PROJECT_DIR$/CutZero_and_AddName.py" />
         <option value="$PROJECT_DIR$/addlabel.py" />
+        <option value="$PROJECT_DIR$/AutoEncoder.py" />
       </list>
     </option>
   </component>
@@ -182,7 +170,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.addlabel">
+  <component name="RunManager" selected="Python.AutoEncoder">
+    <configuration name="AutoEncoder" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="HKUres" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AutoEncoder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="CutZero_and_AddName" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="HKUres" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -197,28 +207,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CutZero_and_AddName.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Pearson_ana" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="HKUres" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Pearson_ana.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -295,18 +283,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.addlabel" />
-      <item itemvalue="Python.Pearson_ana" />
       <item itemvalue="Python.Web_Crawler" />
       <item itemvalue="Python.add_feature" />
       <item itemvalue="Python.CutZero_and_AddName" />
+      <item itemvalue="Python.AutoEncoder" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.AutoEncoder" />
         <item itemvalue="Python.addlabel" />
         <item itemvalue="Python.CutZero_and_AddName" />
         <item itemvalue="Python.add_feature" />
         <item itemvalue="Python.Web_Crawler" />
-        <item itemvalue="Python.Pearson_ana" />
       </list>
     </recent_temporary>
   </component>
@@ -377,12 +365,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25670242" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2600536" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49798927" visible="true" weight="0.28368795" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49798927" visible="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.35177305" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -530,13 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pearson_ana.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Partition_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -560,8 +541,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CutZero_and_AddName.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="23" column="108" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="23" selection-end-column="108" />
+        <state relative-caret-position="184">
+          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
             <marker date="1548757319939" expanded="true" signature="913:918" ph="..." />
@@ -569,10 +550,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/addlabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="110" column="125" selection-start-line="110" selection-start-column="125" selection-end-line="110" selection-end-column="125" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <marker date="1548757569156" expanded="true" signature="3877:3878" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pearson_ana.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/add_feature.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="60">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <marker date="1548402595168" expanded="true" signature="222:1375" ph="..." />
@@ -581,13 +580,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addlabel.py">
+    <entry file="file://$PROJECT_DIR$/AutoEncoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="108" column="20" lean-forward="true" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
+        <state relative-caret-position="243">
+          <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1548757441314" expanded="true" signature="3814:3815" ph="..." />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
