@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4640bfba-de30-439d-8abc-553447d407e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_feature.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addlabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/addlabel.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +13,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/HKUres$addlabel.coverage" NAME="addlabel Coverage Results" MODIFIED="1548403712873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$add_feature.coverage" NAME="add_feature Coverage Results" MODIFIED="1548402595189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HKUres$CutZero_and_AddName.coverage" NAME="CutZero_and_AddName Coverage Results" MODIFIED="1548755707930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$Web_Crawler.coverage" NAME="Web_Crawler Coverage Results" MODIFIED="1548336717510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$Pearson_ana.coverage" NAME="Pearson_ana Coverage Results" MODIFIED="1548326967328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -22,52 +21,54 @@
     <session id="535906162">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.21" value="2" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="29" />
+          <entry key="py" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="29" />
+          <entry key="Python" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3186" />
+          <entry key="py" value="3874" />
           <entry key="txt" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="51" />
-          <entry key="Python" value="3186" />
+          <entry key="Python" value="3874" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addlabel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="129" column="26" lean-forward="true" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
+            <state relative-caret-position="320">
+              <caret line="113" column="88" selection-start-line="113" selection-start-column="76" selection-end-line="113" selection-end-column="88" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-                <marker date="1548403712861" expanded="true" signature="3580:3581" ph="..." />
+                <marker date="1548404121791" expanded="true" signature="3580:3581" ph="..." />
               </folding>
             </state>
           </provider>
@@ -76,12 +77,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/add_feature.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+            <state relative-caret-position="-10">
+              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <marker date="1548402595168" expanded="true" signature="222:1375" ph="..." />
                 <marker date="1548402595168" expanded="true" signature="1966:1967" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CutZero_and_AddName.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+                <marker date="1548755680336" expanded="true" signature="912:917" ph="..." />
               </folding>
             </state>
           </provider>
@@ -111,6 +125,7 @@
         <option value="$PROJECT_DIR$/Web_Crawler.py" />
         <option value="$PROJECT_DIR$/addlabel.py" />
         <option value="$PROJECT_DIR$/add_feature.py" />
+        <option value="$PROJECT_DIR$/CutZero_and_AddName.py" />
       </list>
     </option>
   </component>
@@ -133,7 +148,20 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="HKUres" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HKUres" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -153,7 +181,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.addlabel">
+  <component name="RunManager" selected="Python.CutZero_and_AddName">
+    <configuration name="CutZero_and_AddName" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="HKUres" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CutZero_and_AddName.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Pearson_ana" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="HKUres" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -247,9 +297,11 @@
       <item itemvalue="Python.Pearson_ana" />
       <item itemvalue="Python.Web_Crawler" />
       <item itemvalue="Python.add_feature" />
+      <item itemvalue="Python.CutZero_and_AddName" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.CutZero_and_AddName" />
         <item itemvalue="Python.addlabel" />
         <item itemvalue="Python.add_feature" />
         <item itemvalue="Python.Web_Crawler" />
@@ -310,19 +362,26 @@
       <option name="project" value="LOCAL" />
       <updated>1548347791331</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="preprocessing functions">
+      <created>1548404128765</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1548404128765</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25670242" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25670242" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798927" weight="0.28368795" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49798927" visible="true" weight="0.28368795" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.35177305" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -495,16 +554,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addlabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="113" column="88" selection-start-line="113" selection-start-column="76" selection-end-line="113" selection-end-column="88" />
           <folding>
-            <element signature="e#24#37#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="true" />
+            <marker date="1548404121791" expanded="true" signature="3580:3581" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/add_feature.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        <state relative-caret-position="-10">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <marker date="1548402595168" expanded="true" signature="222:1375" ph="..." />
@@ -513,13 +580,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addlabel.py">
+    <entry file="file://$PROJECT_DIR$/CutZero_and_AddName.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="129" column="26" lean-forward="true" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
+        <state relative-caret-position="200">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1548403712861" expanded="true" signature="3580:3581" ph="..." />
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1548755680336" expanded="true" signature="912:917" ph="..." />
           </folding>
         </state>
       </provider>
