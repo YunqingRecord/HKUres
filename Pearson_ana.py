@@ -1,6 +1,7 @@
 from scipy.stats import pearsonr
 from pandas import read_csv
 from pandas import DataFrame
+import numpy as np
 import matplotlib.pyplot as plt
 import os
 
@@ -60,7 +61,10 @@ for i in range(12):
     temp = []
     for j in range(30):
         temp.append(ans[i][j][0])
-    plt.plot(temp)
+    x = np.linspace(1, 30, 30)
+    plt.xlim(1, 30)
+    plt.ylim(-1, 1)
+    plt.scatter(x, temp)
     plt.title('Pearson_corr of '+column_name[i])
     plt.savefig(
         'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\Pearson_result\\' + column_name[i] + '.png')
