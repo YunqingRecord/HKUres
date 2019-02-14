@@ -1,26 +1,67 @@
 from scipy.stats import pearsonr
-import numpy as np
-import pandas as pd
 from pandas import read_csv
 from pandas import DataFrame
+import matplotlib.pyplot as plt
+import os
+
+total = []
+ac = []
+light = []
+socket = []
+next_holiday = []
+temperature_max = []
+temperature_min = []
+pressure = []
+dew_temp = []
+humidity = []
+cloudiness = []
+rainfall = []
+
+column_name = ['total', 'ac', 'light', 'socket', 'next_holiday',
+               'temperature_max', 'temperature_min', 'pressure',
+               'dew_temp', 'humidity', 'cloudiness', 'rainfall', 'next_consumption']
 
 
-'''
-read files to be analyzed using pearson:
-'''
+def pearson(filepath='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\with_label\\'):
 
-dataset =  read_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\with_label\\11_F.csv')
+    csv_list = os.listdir(filepath)
+    pear = []
+    for csv_file in csv_list:
+        dataset = read_csv(filepath+csv_file, index_col=0)
+        for i in range(0, 12):
+            x = dataset[column_name[i]]
+            y = dataset[column_name[-1]]
+            m = pearsonr(x, y)
+            pear.append(m)
+    return pear
 
-dataset2 = DataFrame(dataset).values
-column_name = list(dataset)
 
-pear = []
-m, n = dataset.shape
-for i in range(1, 13):
-    x = dataset2[:][i]
-    y = dataset2[:][n-1]
-    m = pearsonr(x, y)
-    if m[0] == 'nan':
-        pear.append(('nan', 'nan'))
-    pear.append(m)
-    print(column_name[i], m)
+def output_pear():
+    '''
+    :param : distribute the pearson ana answer into list resp. and plot them to visualize the answer
+    :return: the visualized answer
+    '''
+    pear = pearson()
+    ans = [total, ac, light, socket, next_holiday, temperature_max,
+           temperature_min, pressure, dew_temp, humidity, cloudiness, rainfall]
+    for i in range(0, 12):
+        j = 0
+        j += i
+        while j < 360:
+            ans[i].append(pear[j])
+            j += 12
+    return ans
+
+
+ans = output_pear()
+print(len(ans))
+for i in range(12):
+    plt.figure(i)
+    temp = []
+    for j in range(30):
+        temp.append(ans[i][j][0])
+    plt.plot(temp)
+    plt.title('Pearson_corr of '+column_name[i])
+    plt.savefig(
+        'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\Pearson_result\\' + column_name[i] + '.png')
+    plt.show()
