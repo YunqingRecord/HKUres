@@ -3,9 +3,9 @@ This function divide the dataset into train//valid//test set in a fixed numbers
 '''
 
 
-def partition(values): # used to divide the train and test data
-    # values = load_data(filename)
-    num_trained = 700
+def partition(data): # used to divide the train and test data
+    values = data.values
+    num_trained = 600
     num_valid = 122
 
     train_set = values[0: num_trained, :]
@@ -20,7 +20,7 @@ def partition(values): # used to divide the train and test data
 
     x_test = test_set[:, :-1]
     y_test = test_set[:, -1]
-    y_test_final = test_set[:, -1]
+    # y_test_final = test_set[:, -1]
 
     # reshape to teh [samples, time_steps, num_of_features]
     x_train = x_train.reshape((x_train.shape[0], 1, x_train.shape[1]))
@@ -31,4 +31,4 @@ def partition(values): # used to divide the train and test data
     x_test = x_test.reshape((x_test.shape[0], 1, x_test.shape[1]))
     # y_test  = y_test.reshape((y_test.shape[0], 1, y_test.shape[1]))
 
-    return x_train, y_train, x_valid, y_valid, x_test, y_test, y_test_final
+    return x_train, y_train, x_valid, y_valid, x_test, y_test

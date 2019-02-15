@@ -26,8 +26,9 @@ def scale_data():
     scaled = scalar.fit_transform(values)
     df = DataFrame(scaled, columns=['total', 'ac', 'light', 'socket', 'temperature_max',
                                     'temperature_min', 'pressure', 'dew_temp', 'next_consumption'])
-    df.to_csv()
-    print(df.head())
+    return df
 
 
+df = scale_data()
+x_train, y_train, x_valid, y_valid, x_test, y_test = partition(df)
 
