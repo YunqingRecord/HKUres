@@ -21,8 +21,10 @@ def partition(values): # used to divide the train and test data
     x_test = test_set[:, :-1]
     y_test = test_set[:, -1]
     y_test_final = test_set[:, -1]
+
     # reshape to teh [samples, time_steps, num_of_features]
     x_train = x_train.reshape((x_train.shape[0], 1, x_train.shape[1]))
+
     # y_train = y_train.reshape((y_train.shape[0], 1, y_train.shape[1]))
     x_valid = x_valid.reshape((x_valid.shape[0], 1, x_valid.shape[1]))
 

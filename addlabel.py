@@ -98,20 +98,6 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 # data1 = series_to_supervised(data=dataset)
 
 
-def read_file(first_path='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\add_feature\\'):
-    # read all added features files iteratively and process into new csv file
-    csv_list = os.listdir(first_path)
-    i = 0
-    for csv_file in csv_list:
-        i += 1
-        filename = first_path + csv_file
-        values = DataFrame(load_data(filename))
-        values.drop(values.columns[13:24], axis=1, inplace=True)
-        values.columns = [['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
-                           'temperature_min', 'pressure', 'dew_temp', 'humidity', 'cloudiness', 'rainfall', 'next_consumption']]
-        values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\Processed\\'+str(csv_file))
-
-
 def load_data(filename):  # add labels to the dataset and normalization to N(0,1)
 
     dataset = read_csv(filename,
@@ -125,17 +111,31 @@ def load_data(filename):  # add labels to the dataset and normalization to N(0,1
     values = values.astype('float32')
     # normalize features in the range of (0, 1)
     # scaler = MinMaxScaler(feature_range=(0, 1))
-    scaled = scale(values, axis=0, with_mean=True, with_std=True, copy=True)
+    # scaled = scale(values, axis=0, with_mean=True, with_std=True, copy=True)
     # scaled = scaler.fit_transform(values)
     # frame as supervised learning
-    combine = series_to_supervised(scaled, 1, 1)  # future is one_step
+    combine = series_to_supervised(values, 1, 1)  # future is one_step
     # drop columns overload
     # combine.drop(combine.columns[[9, 10, 11, 12, 13, 14, 15]], axis=1, inplace=True)
     # combine = combine[:, :13]
     # combine.columns = ['total', 'ac', 'light', 'socket', 'other', 'mixed_usage', 'next_holiday',
-    #                    'temperature_max', 'temperature_min', 'pressure', 'dew_temp', 'humidity', 'cloudiness', 'rainfall']
+    # 'temperature_max', 'temperature_min', 'pressure', 'dew_temp', 'humidity', 'cloudiness', 'rainfall']
     values = combine.values
     return values
+
+
+def read_file(first_path='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\add_feature\\'):
+    # read all added features files iteratively and process into new csv file
+    csv_list = os.listdir(first_path)
+    i = 0
+    for csv_file in csv_list:
+        i += 1
+        filename = first_path + csv_file
+        values = DataFrame(load_data(filename))
+        values.drop(values.columns[13:24], axis=1, inplace=True)
+        values.columns = [['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
+                           'temperature_min', 'pressure', 'dew_temp', 'humidity', 'cloudiness', 'rainfall', 'next_consumption']]
+        values.to_csv('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\One_step_origin_with_label\\'+str(csv_file))
 
 
 read_file()
