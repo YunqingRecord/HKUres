@@ -5,6 +5,7 @@ import numpy as np
 from  pandas import read_csv
 import os
 from math import sqrt
+from sklearn.metrics import r2_score
 from sklearn.metrics import mean_squared_error
 
 '''
@@ -35,6 +36,8 @@ def dummy():
     x_test = data[722:, 0]
     y_test = data[722:, 1]
     rmse = sqrt(mean_squared_error(x_test, y_test))
+
+    print('R2 square of LinearRegression:', r2_score(y_test, x_test))
     print('RMSE of Dummy Prediction: ', rmse)
     plt.figure(1)
     plt.plot(x_test, label='Dummy Value')

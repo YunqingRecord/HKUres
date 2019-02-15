@@ -3,6 +3,7 @@ from sklearn.preprocessing import StandardScaler
 from Transform_to_Training import scale_data, read_file, get_data
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
 import numpy as np
 from numpy import concatenate
 from math import sqrt
@@ -31,9 +32,9 @@ def linear():
     inv_y = concatenate((x_test, y_test), axis=1)
     inv_y = scalar.inverse_transform(inv_y)
     inv_y = inv_y[:, -1]
-    for i, prediction in enumerate(predictions):
-        print('Predicted: %s, Target: %s' % (inv_predictions[i], inv_y[i]))
-    print(model.score(inv_whole_test[:, :-1], inv_y))
+    # for i, prediction in enumerate(predictions):
+    #     print('Predicted: %s, Target: %s' % (inv_predictions[i], inv_y[i]))
+    print('R2 square of LinearRegression:', r2_score(inv_y, inv_whole_test[:, -1]))
     rmse = sqrt(mean_squared_error(inv_predictions, inv_y))
     print('RMSE of Linear Regression : ', rmse)
     plt.figure(1)

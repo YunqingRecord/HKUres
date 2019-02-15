@@ -1,8 +1,7 @@
 from pandas import read_csv
 from pandas import DataFrame
-import matplotlib.pyplot as plt
-import numpy as np
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
 from Partition_dataset import partition
 import os
 
@@ -23,12 +22,15 @@ def scale_data():
     data = read_file()
     values = data.values
     scalar = StandardScaler()
+    # scalar = MinMaxScaler(feature_range=(1, 2))
     scaled = scalar.fit_transform(values)
     df = DataFrame(scaled, columns=['total', 'ac', 'light', 'socket', 'temperature_max',
                                     'temperature_min', 'pressure', 'dew_temp', 'next_consumption'])
-    return df
+    return df, scalar
 
 
-df = scale_data()
-x_train, y_train, x_valid, y_valid, x_test, y_test = partition(df)
+def get_data():
+    df, scalar = scale_data()
+    x_train, y_train, x_valid, y_valid, x_test, y_test = partition(df)
+    return x_train, y_train, x_valid, y_valid, x_test, y_test, scalar
 

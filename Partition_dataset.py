@@ -6,7 +6,7 @@ This function divide the dataset into train//valid//test set in a fixed numbers
 def partition(data): # used to divide the train and test data
     values = data.values
     num_trained = 600
-    num_valid = 122
+    num_valid = 121
 
     train_set = values[0: num_trained, :]
     valid_set = values[num_trained:num_trained+num_valid, :]
