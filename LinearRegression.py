@@ -18,14 +18,11 @@ by given the last day parameters.
 
 # Linear Regression model define
 def linear():
-    acc = 0
     x_train, y_train, x_valid, y_valid, x_test, y_test, scalar = get_data()
-    x_train = x_train.reshape(x_train.shape[0], x_train.shape[2])
-    x_test = x_test.reshape(x_test.shape[0], x_test.shape[2])
     y_test = y_test.reshape((len(y_test), 1))
     model = LinearRegression()
     model.fit(x_train, y_train)
-    predictions = (model.predict(x_test)).reshape(300, 1)
+    predictions = (model.predict(x_test)).reshape(len(y_test), 1)
     inv_predictions = concatenate((x_test, predictions), axis=1)
     inv_whole_test = scalar.inverse_transform(inv_predictions)
     inv_predictions = inv_whole_test[:, -1]

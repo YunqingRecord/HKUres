@@ -15,7 +15,7 @@ by not given the last day parameters. This is the control group
 '''
 
 
-def read_file(filepath = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\One_step_origin_with_label\\'):
+def read_file(filepath='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\One_step_origin_with_label\\'):
     # read all added features files iteratively and process into new csv file
     csv_list = os.listdir(filepath)
     i = 0
@@ -46,7 +46,6 @@ def dummy():
     plt.legend(loc='best')
     plt.xlabel('Days')
     plt.ylabel('Consumption')
-    # plt.title('Single Step Linear Regression Accuracy: 92.44%')
     plt.savefig('C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\Train_result\\Dummy.png')
     plt.show()
 

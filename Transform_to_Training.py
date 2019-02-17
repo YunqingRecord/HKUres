@@ -13,8 +13,10 @@ def read_file(filepath = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUr
     for csv_file in csv_list:
         i += 1
         filename = filepath + csv_file
-        dataset = read_csv(filename, usecols=['total', 'ac', 'light', 'socket', 'temperature_max',
-                                              'temperature_min', 'pressure', 'dew_temp', 'next_consumption'])
+        dataset = read_csv(filename,
+                           usecols=['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
+                                    'temperature_min', 'pressure', 'dew_temp', 'cold_season', 'next_consumption'])
+        dataset['cold_season'] = dataset['cold_season'].astype('float64')
         return dataset
 
 
@@ -22,10 +24,9 @@ def scale_data():
     data = read_file()
     values = data.values
     scalar = StandardScaler()
-    # scalar = MinMaxScaler(feature_range=(1, 2))
     scaled = scalar.fit_transform(values)
-    df = DataFrame(scaled, columns=['total', 'ac', 'light', 'socket', 'temperature_max',
-                                    'temperature_min', 'pressure', 'dew_temp', 'next_consumption'])
+    df = DataFrame(scaled, columns=['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
+                                    'temperature_min', 'pressure', 'dew_temp', 'cold_season', 'next_consumption'])
     return df, scalar
 
 
@@ -34,3 +35,4 @@ def get_data():
     x_train, y_train, x_valid, y_valid, x_test, y_test = partition(df)
     return x_train, y_train, x_valid, y_valid, x_test, y_test, scalar
 
+get_data()
