@@ -15,7 +15,7 @@ by not given the last day parameters. This is the control group
 '''
 
 
-def read_file3(filepath='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\One_step_origin_with_label\\'):
+def read_file4(filepath='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\One_step_origin_with_label\\'):
     # read all added features files iteratively and process into new csv file
     csv_list = os.listdir(filepath)
     i = 0
@@ -27,14 +27,14 @@ def read_file3(filepath='C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUre
         return dataset
 
 
-def dummy():
+def multi_dummy():
     '''
     :parameter: using the last day consumption value as the output to be the control group
     :return: accuracy
     '''
-    data = read_file3()
-    x_test = data[722:, 0]
-    y_test = data[722:, 1]
+    data = read_file4()
+    x_test = data[700:-6, 0]
+    y_test = data[706:, 1]
     rmse = sqrt(mean_squared_error(x_test, y_test))
 
     print('R2 square of LinearRegression:', r2_score(y_test, x_test))
@@ -42,7 +42,7 @@ def dummy():
     plt.figure(1)
     plt.plot(x_test, label='Dummy Value')
     plt.plot(y_test, label='True Label')
-    plt.title('Dummy Prediction')
+    plt.title('Multi Dummy Prediction')
     plt.legend(loc='best')
     plt.xlabel('Days')
     plt.ylabel('Consumption')
@@ -50,4 +50,4 @@ def dummy():
     plt.show()
 
 
-dummy()
+multi_dummy()

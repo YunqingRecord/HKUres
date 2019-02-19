@@ -8,21 +8,25 @@ from pandas import concat
 from sklearn.metrics import mean_squared_error
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
-from keras.optimizers import Adam, SGD
+from keras.optimizers import Adam, SGD, RMSprop, Adagrad
 import os
 from loss import loss
 
 
 def read_file(filepath = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUresdata\\One_step_origin_with_label\\'):
     # read all added features files iteratively and process into new csv file
-    csv_list = os.listdir(filepath)
-    i = 0
-    for csv_file in csv_list:
-        i += 1
-        filename = filepath + csv_file
-        dataset = read_csv(filename, usecols=['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
-                                              'temperature_min', 'pressure', 'dew_temp', 'cold_season'])
-        return dataset  # Using the only first one data temporary
+    # csv_list = os.listdir(filepath)
+    # i = 0
+    # for csv_file in csv_list:
+    #     i += 1
+    #     filename = filepath + csv_file
+    #     dataset = read_csv(filename, usecols=['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
+    #                                           'temperature_min', 'pressure', 'dew_temp', 'cold_season'])
+    #     return dataset  # Using the only first one data temporary
+    filename = filepath + '11_F.csv'
+    dataset = read_csv(filename, usecols=['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
+                                          'temperature_min', 'pressure', 'dew_temp', 'cold_season'])
+    return dataset
 
 
 def scale_data():
@@ -78,12 +82,12 @@ def series_to_supervised(values, n_in, n_out, dropnan=True, verbose=True):
 
 def partition(whole, time_steps=7, num_features=10):  # used to divide the train and test data
     values = whole.values
-    num_trained = 700
+    num_trained = 720
     num_valid = 0
 
     train_set = values[0: num_trained, :]
     valid_set = values[num_trained:num_trained+num_valid, :]
-    test_set = values[num_trained+num_valid:, :]
+    test_set = values[num_trained+num_valid-26:, :]
 
     x_train = train_set[:, :time_steps*num_features]
     y_train = train_set[:, -num_features]
@@ -122,12 +126,15 @@ def data_input():
 def Model():
     x_train, y_train, x_test, y_test, scalar = data_input()
     model = Sequential()
-    model.add(LSTM(30, input_shape=(x_train.shape[1], x_train.shape[2]))) #, stateful=True))
+    model.add(LSTM(30, batch_input_shape=(8, x_train.shape[1], x_train.shape[2]), stateful=True, return_sequences=True)) #, stateful=True))
+    model.add(LSTM(30))  # , stateful=True))
     model.add(Dense(20))
+    model.add(Dense(12))
+    model.add(Dense(5))
     model.add(Dense(1))
-    # sgd = SGD(lr=0.001, decay=1e-5, momentum=0.95, nesterov=True)
-    model.compile(optimizer='adam', loss=loss)
-    history = model.fit(x_train, y_train, epochs=3000, batch_size=8, shuffle=True)
+    sgd = SGD(lr=0.0001, decay=1e-7, momentum=0.95, nesterov=True)
+    model.compile(optimizer='Adam', loss='mse')
+    history = model.fit(x_train, y_train, epochs=2000, batch_size=8, shuffle=False)
     plt.figure(1)
     plt.plot(history.history['loss'], label='train_loss')
     # plt.plot(history.history['val_loss'], label='val_loss')
@@ -145,6 +152,7 @@ def Model():
     # plt.xlabel("epoch")
     # plt.legend(["train_acc"], loc="upper right")
 
+
     plt.show()
     return model, scalar, x_test, y_test
 
@@ -152,7 +160,7 @@ def Model():
 def Model_Prediction(features=10, time_steps=7):
 
     model, scalar, x_test, y_test = Model()
-    y_pred = model.predict(x_test)
+    y_pred = model.predict(x_test, batch_size=8)
     x_test = x_test.reshape(x_test.shape[0], features*time_steps)
 
     '''
@@ -169,6 +177,11 @@ def Model_Prediction(features=10, time_steps=7):
 
     # calculate RMSE
     rmse = sqrt(mean_squared_error(inv_y, inv_y_pred))
+    avg = np.average(inv_y)
+    error_percentage = rmse / avg
+
+    print("Test Root Mean Square Error: %.3f" % rmse)
+    print("Test Average Error Percentage: %.2f/100.00" % (error_percentage * 100))
 
     # calculate average error percentage
     avg = np.average(inv_y)
@@ -176,10 +189,13 @@ def Model_Prediction(features=10, time_steps=7):
 
     print("Test Root Mean Square Error: %.3f" % rmse)
     print("Test Average Error Percentage: %.2f/100.00" % (error_percentage * 100))
-
+    plt.figure(2)
     plt.plot(inv_y, label="Actual Consumption")
     plt.plot(inv_y_pred, label="Predicted Consumption")
-    plt.legend()
+    plt.xlabel('Days')
+    plt.ylabel('Consumption')
+    plt.title('Single Step LSTM')
+    plt.legend(loc='best')
     plt.show()
 
     return inv_y, inv_y_pred, rmse, error_percentage
