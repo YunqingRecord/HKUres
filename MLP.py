@@ -10,7 +10,7 @@ from numpy import concatenate
 from math import sqrt
 from pandas import DataFrame
 from keras import Sequential
-from keras.layers import Dense
+from keras.layers import Dense, Activation, BatchNormalization
 from keras.optimizers import SGD
 import loss
 
@@ -144,14 +144,15 @@ def linear():
 def Model():
     x_train, y_train, x_test, y_test, scalar = data_input()
     model = Sequential()
-    model.add(Dense(30, input_shape=(70,)))
-    model.add(Dense(25))
-    model.add(Dense(18))
-    model.add(Dense(5))
+    model.add(Dense(55, input_shape=(70,)))
+    model.add(Dense(35))
+    model.add(Dense(20))
+    model.add(Dense(15))
+
     model.add(Dense(1))
-    sgd = SGD(lr=0.00001, decay=1e-7, momentum=0.95, nesterov=True)
-    model.compile(optimizer='Adam', loss='mse')
-    history = model.fit(x_train, y_train, epochs=2000, batch_size=6, shuffle=True)
+    sgd = SGD(lr=0.0001, decay=1e-7, momentum=0.95, nesterov=True)
+    model.compile(optimizer='adam', loss='mse')
+    history = model.fit(x_train, y_train, epochs=400, batch_size=8, shuffle=True)
     plt.figure(1)
     plt.plot(history.history['loss'], label='train_loss')
     # plt.plot(history.history['val_loss'], label='val_loss')
@@ -176,7 +177,7 @@ def Model():
 def Model_Prediction(features=10, time_steps=7):
 
     model, scalar, x_test, y_test = Model()
-    y_pred = model.predict(x_test)
+    y_pred = model.predict(x_test, batch_size=8)
     x_test = x_test.reshape(x_test.shape[0], features*time_steps)
 
     '''
