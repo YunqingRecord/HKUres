@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4640bfba-de30-439d-8abc-553447d407e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/One_dim_ResNet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GRU_One.py" beforeDir="false" afterPath="$PROJECT_DIR$/GRU_One.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LSTM_One.py" beforeDir="false" afterPath="$PROJECT_DIR$/LSTM_One.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/MLP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/One_dim_ResNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/One_dim_ResNet.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,13 +21,13 @@
     <SUITE FILE_PATH="coverage/HKUres$LSTM_One.coverage" NAME="LSTM_One Coverage Results" MODIFIED="1550588617383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$Mnist_Keras.coverage" NAME="Mnist_Keras Coverage Results" MODIFIED="1549987794656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../SEM2/fuzzy/Assignment" />
     <SUITE FILE_PATH="coverage/HKUres$LinearRegression.coverage" NAME="LinearRegression Coverage Results" MODIFIED="1550557839063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/HKUres$One_dim_ResNet.coverage" NAME="One_dim_ResNet Coverage Results" MODIFIED="1550992454802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HKUres$One_dim_ResNet.coverage" NAME="One_dim_ResNet Coverage Results" MODIFIED="1551013355101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$AutoEncoder.coverage" NAME="AutoEncoder Coverage Results" MODIFIED="1550055475021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$Transform_to_Training.coverage" NAME="Transform_to_Training Coverage Results" MODIFIED="1550388502801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$addlabel.coverage" NAME="addlabel Coverage Results" MODIFIED="1550210655578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$no_label.coverage" NAME="no_label Coverage Results" MODIFIED="1550039380387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$SVR_single_step.coverage" NAME="SVR_single_step Coverage Results" MODIFIED="1550557910018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/HKUres$MLP.coverage" NAME="MLP Coverage Results" MODIFIED="1550987347402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HKUres$MLP.coverage" NAME="MLP Coverage Results" MODIFIED="1551005960654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$CutZero_and_AddName.coverage" NAME="CutZero_and_AddName Coverage Results" MODIFIED="1548755707930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HKUres$Rasp.coverage" NAME="Rasp Coverage Results" MODIFIED="1550402845751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../Google-Vision-Kit" />
     <SUITE FILE_PATH="coverage/HKUres$Pearson_ana.coverage" NAME="Pearson_ana Coverage Results" MODIFIED="1550151942255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -53,13 +51,13 @@
     <session id="535906162">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
+          <entry key="project.closed" value="39" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="3" />
           <entry key="project.open.time.22" value="4" />
-          <entry key="project.open.time.23" value="12" />
+          <entry key="project.open.time.23" value="13" />
           <entry key="project.open.time.24" value="7" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="2" />
@@ -69,7 +67,7 @@
           <entry key="project.open.time.5" value="6" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="46" />
+          <entry key="project.opened" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -84,25 +82,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="13971" />
-          <entry key="txt" value="114" />
+          <entry key="py" value="14396" />
+          <entry key="txt" value="169" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="114" />
-          <entry key="Python" value="13971" />
+          <entry key="PLAIN_TEXT" value="169" />
+          <entry key="Python" value="14396" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/One_dim_ResNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1215">
-              <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+            <state relative-caret-position="-331">
+              <caret line="221" column="46" selection-start-line="221" selection-start-column="46" selection-end-line="221" selection-end-column="46" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -110,11 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MLP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="154" column="50" selection-start-line="154" selection-start-column="50" selection-end-line="154" selection-end-column="50" />
+            <state relative-caret-position="-1592">
+              <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -135,6 +133,7 @@
     <findStrings>
       <find>Trans</find>
       <find>(col_names[j</find>
+      <find>BatchNormalizatio</find>
     </findStrings>
   </component>
   <component name="Git.Rebase.Settings">
@@ -206,6 +205,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,7 +217,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -454,19 +453,33 @@
       <option name="project" value="LOCAL" />
       <updated>1550585523057</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="small changes">
+      <created>1550994586076</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1550994586076</updated>
+    </task>
+    <task id="LOCAL-00013" summary="One_dim version of Residual Network">
+      <created>1550994609697</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1550994609697</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16286863" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16487935" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49597856" visible="true" weight="0.16453901" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49597856" weight="0.20567375" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" weight="0.2751773" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -517,7 +530,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="preprocessing functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="preprocessing functions" />
+    <MESSAGE value="small changes" />
+    <MESSAGE value="One_dim version of Residual Network" />
+    <option name="LAST_COMMIT_MESSAGE" value="One_dim version of Residual Network" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -536,11 +551,6 @@
           <url>file://$PROJECT_DIR$/Dummy_Prediction.py</url>
           <line>26</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/One_dim_ResNet.py</url>
-          <line>131</line>
-          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -821,9 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
           <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
-          <folding>
-            <element signature="e#180#218#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -838,9 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="159" column="39" lean-forward="true" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -848,32 +852,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
           <caret line="178" column="20" selection-start-line="178" selection-start-column="20" selection-end-line="178" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/One_dim_ResNet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-331">
+          <caret line="221" column="46" selection-start-line="221" selection-start-column="46" selection-end-line="221" selection-end-column="46" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <marker date="1550929401488" expanded="true" signature="590:595" ph="..." />
-            <marker date="1550929401488" expanded="true" signature="1388:1393" ph="..." />
-            <marker date="1550929401488" expanded="true" signature="4204:4206" ph="..." />
-            <marker date="1550929401488" expanded="true" signature="4697:4702" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MLP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="154" column="50" selection-start-line="154" selection-start-column="50" selection-end-line="154" selection-end-column="50" />
+        <state relative-caret-position="-1592">
+          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One_dim_ResNet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1215">
-          <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -71,15 +71,15 @@ def read_file(filepath = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUr
     #     dataset = read_csv(filename, usecols=['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
     #                                           'temperature_min', 'pressure', 'dew_temp', 'cold_season'])
     #     return dataset  # Using the only first one data temporary
-    filename = filepath + '11_F.csv'
+    filename = filepath + '12_F.csv'
     dataset = DataFrame(read_csv(filename, usecols=['total', 'ac', 'light', 'socket', 'next_holiday', 'temperature_max',
                                           'temperature_min', 'pressure', 'dew_temp', 'cold_season']))
-    # dataset['ac'] = dataset['ac']/1000
-    # dataset['socket'] = dataset['socket']/1000
-    # dataset['light'] = dataset['light']/1000
+    dataset['ac'] = dataset['ac']/1000
+    dataset['socket'] = dataset['socket']/1000
+    dataset['light'] = dataset['light']/1000
 
     return dataset
-
+3
 
 def scale_data():
     data = read_file()
@@ -151,11 +151,11 @@ def partition(whole, time_steps=7, num_features=10):  # used to divide the train
     y_test = test_set[:, -num_features]
 
     # reshape to teh [samples, time_steps, num_of_features]
-    x_train = x_train.reshape((x_train.shape[0], 1, 70))
+    x_train = x_train.reshape((x_train.shape[0], 7, 10))
     # # y_train = y_train.reshape((y_train.shape[0], 1, y_train.shape[1]))
     # x_valid = x_valid.reshape((x_valid.shape[0], time_steps, num_features))
 
-    x_test = x_test.reshape((x_test.shape[0], 1, 70))
+    x_test = x_test.reshape((x_test.shape[0], 7, 10))
 
     return x_train, y_train, x_test, y_test
 
@@ -177,21 +177,20 @@ def data_input():
 
 def identity_block(input_tensor, kernel_size, filters):
     filters1, filters2, filters3 = filters
-    bn_axis = -1
 
     x = Conv1D(filters1, kernel_size)(input_tensor)
     # x = layers.BatchNormalization(axis=bn_axis)(x)
-    x = layers.Activation('tanh')(x)
+    # x = layers.Activation('tanh')(x)
 
     x = Conv1D(filters2, kernel_size, padding='same')(x)
     # x = layers.BatchNormalization(axis=bn_axis)(x)
-    x = layers.Activation('tanh')(x)
+    # x = layers.Activation('tanh')(x)
 
     x = Conv1D(filters3, kernel_size)(x)
     # x = layers.BatchNormalization(axis=bn_axis)(x)
 
     x = layers.add([x, input_tensor])
-    x = layers.Activation('tanh')(x)
+    # x = layers.Activation('tanh')(x)
     return x
 
 
@@ -220,23 +219,27 @@ def conv_block(input_tensor, kernel_size, filters, strides=2):
 
 def ResNet1D(input_tensor=None, strides=1):
 
-    x = Conv1D(input_shape=(1, 70), filters=128, kernel_size=1, strides=strides, padding='valid')(input_tensor)
+    x = Conv1D(input_shape=(7, 10), filters=64, kernel_size=2, strides=strides, padding='valid')(input_tensor)
     # x = layers.BatchNormalization()(x)
     # x = layers.Activation('tanh')(x)
-    x = conv_block(input_tensor=x, kernel_size=1, filters=[128, 128, 64], strides=1)
+    x = conv_block(input_tensor=x, kernel_size=1, filters=[64, 64, 32], strides=1)
     # x = identity_block(x, 1, [4, 4, 8], stage=2, block='b')
-    x = identity_block(x, 1, [64, 32, 64])
+    x = identity_block(x, 1, [64, 64, 32])
 
-    x = conv_block(x, 1, [8, 8, 32])
-    x = identity_block(x, 1, [8, 8, 32])
-    x = identity_block(x, 1, [8, 8, 32])
-    x = identity_block(x, 1, [8, 8, 32])
-    #
-    x = conv_block(x, 1, [16, 16, 32])
-    x = identity_block(x, 1, [16, 16, 32])
-    x = identity_block(x, 1, [16, 16, 32])
-    x = identity_block(x, 1, [16, 16, 32])
-    x = identity_block(x, 1, [16, 16, 32])
+    # x = conv_block(x, 1, [64, 64, 32])
+    # x = identity_block(x, 1, [64, 64, 32])
+    # x = conv_block(x, 1, [64, 64, 64])
+    # x = identity_block(x, 1, [32, 32, 64])
+    # x = conv_block(x, 1, [32, 32, 64])
+    # x = identity_block(x, 1, [128, 64, 64])
+    # #
+    # x = conv_block(x, 1, [64, 64, 32])
+    # x = identity_block(x, 1, [64, 64, 32])
+    # x = conv_block(x, 1, [32, 32, 32])
+    # x = identity_block(x, 1, [32, 16, 32])
+    # x = conv_block(x, 1, [16, 16, 32])
+    # x = identity_block(x, 1, [16, 16, 32])
+    # x = identity_block(x, 1, [16, 16, 32])
     # x = identity_block(x, 1, [128, 128, 512], stage=4, block='c')
     # x = identity_block(x, 1, [128, 128, 512], stage=4, block='d')
     # x = identity_block(x, 1, [128, 128, 512], stage=4, block='e')
@@ -245,9 +248,9 @@ def ResNet1D(input_tensor=None, strides=1):
     # x = conv_block(x, 1, [256, 256, 1024], stage=5, block='a')
     # x = identity_block(x, 1, [256, 256, 1024], stage=5, block='b')
     # x = identity_block(x, 1, [256, 256, 1024], stage=5, block='c')
-    x = conv_block(x, 1, [32, 32, 64])
-    x = identity_block(x, 1, [32, 32, 64])
-    x = identity_block(x, 1, [32, 32, 64])
+    # x = conv_block(x, 1, [32, 32, 64])
+    # x = identity_block(x, 1, [32, 32, 64])
+    # x = identity_block(x, 1, [32, 32, 64])
 
     x = layers.Flatten()(x)
 
@@ -257,19 +260,23 @@ def ResNet1D(input_tensor=None, strides=1):
 def Model():
     x_train, y_train, x_test, y_test, scalar = data_input()
 
-    I1 = layers.Input(shape=(1, 70))
+    I1 = layers.Input(shape=(7, 10))
 
     x_spec_res = (ResNet1D(input_tensor=I1, strides=1))
-    y1 = layers.Dense(units=12)(x_spec_res)
+    # y1 = layers.Dense(units=48)(x_spec_res)
+    y1 = layers.Dense(units=36)(x_spec_res)
+    y1 = layers.Dense(units=24)(y1)
+
+    # y1 = layers.Dense(units=12)(y1)
     y1 = layers.Dense(units=8)(y1)
     y_hat = layers.Dense(units=1)(y1)
 
     model = keras.models.Model(inputs=I1, outputs=y_hat)
     sgd = SGD(lr=0.001, decay=1e-6, momentum=0.8, nesterov=True)
-    model.compile(loss='mse', optimizer=sgd, metrics=['accuracy'])
+    model.compile(loss='mse', optimizer='adam')
     model.summary()
 
-    history=model.fit(x_train, y_train, batch_size=16, epochs=200)
+    history=model.fit(x_train, y_train, batch_size=8, epochs=1000)
     # plot_model(model, to_file='r.png')
 
     # plt.plot(history.history['val_loss'], label='val_loss')
@@ -282,13 +289,13 @@ def Model():
     plt.legend(["train_loss"], loc="upper right")
 
     plt.show()
-    return model, scalar, x_test, y_test
+    return model, scalar, x_test, y_test, x_train
 
 
 def Model_Prediction(features=10, time_steps=7):
 
-    model, scalar, x_test, y_test = Model()
-    y_pred = model.predict(x_test, batch_size=16)
+    model, scalar, x_test, y_test, x_train = Model()
+    y_pred = model.predict(x_test, batch_size=8)
     x_test = x_test.reshape(x_test.shape[0], features*time_steps)
 
     '''
@@ -322,7 +329,7 @@ def Model_Prediction(features=10, time_steps=7):
     plt.plot(inv_y_pred, label="Predicted Consumption")
     plt.xlabel('Days')
     plt.ylabel('Consumption')
-    plt.title('One_dim Resnet')
+    plt.title('One_Dim ResNet')
     plt.legend(loc='best')
     plt.show()
 
