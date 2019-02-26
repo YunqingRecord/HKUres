@@ -127,15 +127,16 @@ def data_input():
 def Model():
     x_train, y_train, x_test, y_test, scalar = data_input()
     model = Sequential()
-    model.add(LSTM(30, batch_input_shape=(1, x_train.shape[1], x_train.shape[2]), stateful=True, return_sequences=True))  #, stateful=True))
-    model.add(LSTM(30, stateful=True))  # , stateful=True))
-    model.add(Dense(20))
-    model.add(Dense(12))
+
+    model.add(LSTM(22, batch_input_shape=(4, x_train.shape[1], x_train.shape[2]), stateful=True, return_sequences=False))  #, stateful=True))
+    # model.add(LSTM(30, stateful=True))  # , stateful=True))
+    # model.add(Dense(20))
+    model.add(Dense(12, activation='tanh'))
     model.add(Dense(5))
     model.add(Dense(1))
     sgd = SGD(lr=0.0001, decay=1e-7, momentum=0.95, nesterov=True)
-    model.compile(optimizer='Adam', loss='mae')
-    history = model.fit(x_train, y_train, epochs=2000, batch_size=1, shuffle=False)
+    model.compile(optimizer='Adam', loss='mse')
+    history = model.fit(x_train, y_train, epochs=500, batch_size=4, shuffle=False)
     plt.figure(1)
     plt.plot(history.history['loss'], label='train_loss')
     # plt.plot(history.history['val_loss'], label='val_loss')
@@ -161,7 +162,7 @@ def Model():
 def Model_Prediction(features=10, time_steps=7):
 
     model, scalar, x_test, y_test = Model()
-    y_pred = model.predict(x_test, batch_size=1)
+    y_pred = model.predict(x_test, batch_size=4)
     x_test = x_test.reshape(x_test.shape[0], features*time_steps)
 
     '''

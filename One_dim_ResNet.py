@@ -5,7 +5,7 @@ import keras.layers as layers
 import keras.models
 from keras.layers.convolutional import Conv1D
 from keras.utils.vis_utils import plot_model
-from keras.optimizers import adam, adadelta, adagrad, SGD
+from keras.optimizers import adam, adadelta, adagrad, SGD, rmsprop
 
 from math import sqrt
 from matplotlib import pyplot as plt
@@ -79,7 +79,7 @@ def read_file(filepath = 'C:\\Users\\Yunqing\\Desktop\\dissertation of HKU\\HKUr
     dataset['light'] = dataset['light']/1000
 
     return dataset
-3
+
 
 def scale_data():
     data = read_file()
@@ -219,15 +219,15 @@ def conv_block(input_tensor, kernel_size, filters, strides=2):
 
 def ResNet1D(input_tensor=None, strides=1):
 
-    x = Conv1D(input_shape=(7, 10), filters=64, kernel_size=2, strides=strides, padding='valid')(input_tensor)
+    x = Conv1D(input_shape=(7, 10), filters=32, kernel_size=1, strides=strides, padding='valid')(input_tensor)
     # x = layers.BatchNormalization()(x)
     # x = layers.Activation('tanh')(x)
-    x = conv_block(input_tensor=x, kernel_size=1, filters=[64, 64, 32], strides=1)
-    # x = identity_block(x, 1, [4, 4, 8], stage=2, block='b')
-    x = identity_block(x, 1, [64, 64, 32])
+    x = conv_block(input_tensor=x, kernel_size=1, filters=[16, 32, 8], strides=1)
+    x = identity_block(x, 1, [8, 8, 8])
+    x = identity_block(x, 1, [8, 8, 8])
 
-    # x = conv_block(x, 1, [64, 64, 32])
-    # x = identity_block(x, 1, [64, 64, 32])
+    x = conv_block(x, 1, [8, 8, 8])
+    # x = identity_block(x, 1, [16, 16, 16])
     # x = conv_block(x, 1, [64, 64, 64])
     # x = identity_block(x, 1, [32, 32, 64])
     # x = conv_block(x, 1, [32, 32, 64])
@@ -265,18 +265,19 @@ def Model():
     x_spec_res = (ResNet1D(input_tensor=I1, strides=1))
     # y1 = layers.Dense(units=48)(x_spec_res)
     y1 = layers.Dense(units=36)(x_spec_res)
-    y1 = layers.Dense(units=24)(y1)
+    y1 = layers.Dense(units=28)(y1)
 
     # y1 = layers.Dense(units=12)(y1)
+    y1 = layers.Dense(units=14)(y1)
     y1 = layers.Dense(units=8)(y1)
     y_hat = layers.Dense(units=1)(y1)
 
     model = keras.models.Model(inputs=I1, outputs=y_hat)
-    sgd = SGD(lr=0.001, decay=1e-6, momentum=0.8, nesterov=True)
+    sgd = SGD(lr=0.0001, decay=1e-6, momentum=0.8, nesterov=True)
     model.compile(loss='mse', optimizer='adam')
     model.summary()
 
-    history=model.fit(x_train, y_train, batch_size=8, epochs=1000)
+    history=model.fit(x_train, y_train, batch_size=2, epochs=300)
     # plot_model(model, to_file='r.png')
 
     # plt.plot(history.history['val_loss'], label='val_loss')
@@ -295,7 +296,7 @@ def Model():
 def Model_Prediction(features=10, time_steps=7):
 
     model, scalar, x_test, y_test, x_train = Model()
-    y_pred = model.predict(x_test, batch_size=8)
+    y_pred = model.predict(x_test, batch_size=2)
     x_test = x_test.reshape(x_test.shape[0], features*time_steps)
 
     '''
@@ -316,14 +317,12 @@ def Model_Prediction(features=10, time_steps=7):
     error_percentage = rmse / avg
 
     print("Test Root Mean Square Error: %.3f" % rmse)
-    print("Test Average Error Percentage: %.2f/100.00" % (error_percentage * 100))
+    print("Test Average Accuracy Percentage: %.2f/100.00" % (100-(error_percentage * 100)))
 
     # calculate average error percentage
     avg = np.average(inv_y)
     error_percentage = rmse / avg
 
-    print("Test Root Mean Square Error: %.3f" % rmse)
-    print("Test Average Error Percentage: %.2f/100.00" % (error_percentage * 100))
     plt.figure(2)
     plt.plot(inv_y, label="Actual Consumption")
     plt.plot(inv_y_pred, label="Predicted Consumption")

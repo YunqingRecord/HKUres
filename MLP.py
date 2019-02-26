@@ -145,7 +145,7 @@ def Model():
     x_train, y_train, x_test, y_test, scalar = data_input()
     model = Sequential()
     model.add(Dense(55, input_shape=(70,)))
-    model.add(Dense(35))
+    # model.add(Dense(35))
     model.add(Dense(20))
     model.add(Dense(15))
 
