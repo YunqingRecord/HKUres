@@ -1,3 +1,1 @@
-# HKUres
-Dissertation via HKU
-To be written...
+## Various Algorithms to make vlaue prediction
